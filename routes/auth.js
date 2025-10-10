@@ -1,5 +1,5 @@
 const express = require("express");
-const { signup, login } = require("../controllers/auth");
+const { signup, login, refresh, logout } = require("../controllers/auth");
 const { body } = require("express-validator");
 
 const router = express.Router();
@@ -90,5 +90,8 @@ router.post(
     ],
     login
 );
+
+router.get("/refresh-token", refresh)
+router.post("/logout", logout)
 
 module.exports = router;
